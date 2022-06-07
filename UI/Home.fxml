@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextArea layoutX="31.0" layoutY="88.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label layoutX="95.0" layoutY="36.0" text="Encryption" />
+      <Label layoutX="438.0" layoutY="44.0" text="Dycryption" />
+      <TextArea layoutX="366.0" layoutY="78.0" prefHeight="200.0" prefWidth="200.0" />
+   </children>
+</AnchorPane>
