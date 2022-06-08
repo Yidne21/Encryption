@@ -3,12 +3,14 @@ package Substitution_cipher.MonoAlphabetic_cipher;
 public class MultiplicativeCipher {
 
     String str;
+    int key;
 
-    public MultiplicativeCipher(String str) {
+    public MultiplicativeCipher() {
         this.str = str;
+        this.key = key;
     }
 
-    public String encryptString(String str, int key) {
+    public String encrypt(String string, int k) {
         String cipher_text = "";
         System.out.println("Encrypted text is");
         int n = str.length();
@@ -26,7 +28,7 @@ public class MultiplicativeCipher {
         return cipher_text;
     }
 
-    public String decryptString(int key) {
+    public String decrypt(String string, int k) {
 
         // String plaintext; //string ciphertext=" ";
         String plain_text = "";
