@@ -1,6 +1,6 @@
 import com.jfoenix.controls.JFXButton;
 
-import Substitution_cipher.MonoAlphabetic_cipher.Ceasar_cipher;
+import Substitution_cipher.MonoAlphabetic_cipher.CeasarCipher;
 import Substitution_cipher.MonoAlphabetic_cipher.MultiplicativeCipher;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -44,11 +44,11 @@ public class Controller {
             case "Ceasar Cipher":
                 int k = Integer.parseInt(key.getText());
                 if (decrypt.getText() == null && encrypt.getText() != null) {
-                    String value = new Ceasar_cipher().encrypt(encrypt.getText(), k);
-                    decrypt.setText(value);
+                    new CeasarCipher();
+                    decrypt.setText(CeasarCipher.encrypt(encrypt.getText(), k));
                 } else {
-                    String value = new Ceasar_cipher().decrypt(decrypt.getText(), k);
-                    encrypt.setText(value);
+                    new CeasarCipher();
+                    encrypt.setText(CeasarCipher.decrypt(decrypt.getText(), k));
                 }
                 break;
             case "Multiplicative Cipher":
@@ -63,5 +63,4 @@ public class Controller {
                 break;
         }
     }
-
 }

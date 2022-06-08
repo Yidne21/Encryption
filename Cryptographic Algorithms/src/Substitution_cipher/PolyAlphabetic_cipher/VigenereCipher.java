@@ -1,5 +1,4 @@
 package Substitution_cipher.PolyAlphabetic_cipher;
-// Java code to implement Vigenere Cipher
 
 public class VigenereCipher {
 	String str;
@@ -24,18 +23,18 @@ public class VigenereCipher {
 
 	static String encrypt(String str, String key) {
 		String cipher_text = "";
-		for (int i = 0; i < str.length(); i++) {
-			// converting in range 0-25
-			int x = (str.charAt(i) + key.charAt(i)) % 26;
-			// convert into alphabets(ASCII)
-			x += 'A';
-			cipher_text += (char) (x);
+		try {
+			for (int i = 0; i < str.length(); i++) {
+				int x = (str.charAt(i) + key.charAt(i)) % 26;
+				x += 'A';
+				cipher_text += (char) (x);
+			}
+		} catch (Exception e) {
+			System.out.println("Problem here");
 		}
 		return cipher_text;
 	}
 
-	// This function decrypts the encrypted text
-	// and returns the original text
 	public static String decrypt(String cipher_text, String key) {
 		String orig_text = "";
 		for (int i = 0; i < cipher_text.length() &&
@@ -43,7 +42,6 @@ public class VigenereCipher {
 			// converting in range 0-25
 			int x = (cipher_text.charAt(i) -
 					key.charAt(i) + 26) % 26;
-
 			// convert into alphabets(ASCII)
 			x += 'A';
 			orig_text += (char) (x);
@@ -61,5 +59,9 @@ public class VigenereCipher {
 		}
 		s = str.toString();
 		return s;
+	}
+
+	public static void main(String[] args) {
+		System.out.println(VigenereCipher.encrypt("who", "key"));
 	}
 }

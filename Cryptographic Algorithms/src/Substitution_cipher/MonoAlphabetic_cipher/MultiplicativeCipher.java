@@ -2,57 +2,42 @@ package Substitution_cipher.MonoAlphabetic_cipher;
 
 public class MultiplicativeCipher {
 
-    String str;
+    String str = "";
     int key;
 
-    public MultiplicativeCipher() {
-        this.str = str;
-        this.key = key;
-    }
-
     public String encrypt(String string, int k) {
-        String cipher_text = "";
-        System.out.println("Encrypted text is");
-        int n = str.length();
-        System.out.println("Enter the value by which each letter of the string is to be shifted");
-        char ch1[] = str.toCharArray();
-        char ch3;
-        for (int i = 0; i < n; i++) {
-            if (Character.isLetter(ch1[i])) {
-                ch3 = (char) (((int) ch1[i] * key - 97) % 26 + 97);
-                cipher_text = cipher_text + ch3;
-            } else if (ch1[i] == ' ') {
-                cipher_text = cipher_text + ch1[i];
-            }
+        String CipheredText = "";
+        for (int i = 0; i < str.length(); i++) {
+            char t = str.charAt(i);
+            int charNum = (char) t - 97;
+            int c = (k * charNum) % 26;
+            char newC = (char) (c + 97);
+            CipheredText += newC;
         }
-        return cipher_text;
+        return CipheredText;
     }
 
     public String decrypt(String string, int k) {
-
-        // String plaintext; //string ciphertext=" ";
-        String plain_text = "";
-        int inv = 0;
-        int check = 0;
-        for (int i = 0; i < 26; i++) {
-            check = (i * key) % 26;
-            if (check == 1) {
-                inv = i;
-                break;
-            }
-        }
-        if (check != 1) {
-            System.out.println("\n Inverse Key don't exist");
-            return null;
-        }
+        String PlainText = "";
 
         for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) >= 'A' && str.charAt(i) <= 'Z') {
-                plain_text += (char) ((inv * ((int) str.charAt(i) - 65)) % 26 + 65);
-            } else {
-                plain_text += (char) ((inv * (int) (str.charAt(i) - 97)) % 26 + 97);
-            }
+            char c = str.charAt(i);
+            int charNum = (char) c - 97;
+
+            int decipher = ((modInverse(key, 26)) * (charNum)) % 26;
+
+            char newC = (char) (decipher + 97);
+            PlainText += newC;
         }
-        return plain_text;
+        return PlainText;
+    }
+
+    public static int modInverse(int a, int m) {
+        a = a % m;
+        for (int i = 1; i < m; i++) {
+            if ((a * i) % m == 1)
+                return i;
+        }
+        return 1;
     }
 }

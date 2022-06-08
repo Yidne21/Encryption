@@ -2,8 +2,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import Substitution_cipher.MonoAlphabetic_cipher.AffineCipher;
-//import Substitution_cipher.MonoAlphabetic_cipher.MultiplicativeCipher;
-import Substitution_cipher.PolyAlphabetic_cipher.HillCipher1;
+import Substitution_cipher.MonoAlphabetic_cipher.MultiplicativeCipher;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -24,7 +23,10 @@ public class App extends Application {
 
         launch(args);
 
-        // // Scanner sc = new Scanner(System.in);
+        // MultiplicativeCipher ob1 = new MultiplicativeCipher();
+        // System.out.println(ob1.decrypt("Just keep Coding", 3));
+
+        // Scanner sc = new Scanner(System.in);
         // int keysize;
         // String plaintext;
 

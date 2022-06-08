@@ -113,7 +113,6 @@ public class PlayFair_Cipher {
                     temp += this.matrix.get(Integer.parseInt(temp_index1[0])).get(Integer.parseInt(temp_index2[1]))
                             + this.matrix.get(Integer.parseInt(temp_index2[0])).get(Integer.parseInt(temp_index1[1]))
                             + " ";
-
                 }
 
             }
